@@ -66,7 +66,7 @@ class OverlaySupport extends StatelessWidget {
     this.toastTheme,
   }) : global = false;
 
-  OverlaySupportState? of(BuildContext context) {
+  static OverlaySupportState? of(BuildContext context) {
     return context.findAncestorStateOfType<OverlaySupportState>();
   }
 
@@ -181,10 +181,12 @@ abstract class OverlaySupportState<T extends StatefulWidget> extends State<T> {
     return _entries[key];
   }
 
+  @protected
   void addEntry(OverlaySupportEntry entry, {required Key key}) {
     _entries[key] = entry;
   }
 
+  @protected
   void removeEntry({required Key key}) {
     _entries.remove(key);
   }
